@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../core/RedDragon.js"></script>
+</head>
+<body>
+<script>
+    //文档加载完后执行
+    RedDragon(function(){
+
+        /*
+        * 在控制台打印info, err, warn日志
+        * void info ( args... )
+        * void err ( args... )
+        * void warn ( args... )
+        * 如果args是null, 则清除之前控制台输出的输出
+        * 如果args是array, 则以table格式输出, IE9以下不支持
+        * 如果args是object, function, 则以对象的格式输出
+        * 其他类型则以普通日志输出
+        * */
+
+        info('document load is ok');
+
+        info('//this指向-----------');
+
+            //this指向document
+            info(this);
+
+        info('//选择器--------------');
+
+            //1.初始化 RedDragon
+            RedDragon('a');
+
+            //2.可以创建一个标签
+            RedDragon('<a>aaaa</a>');
+
+            //3.可以直接将元素放入
+            RedDragon(document.querySelectorAll('a'));
+
+
+        //如何确认你选择的dom元素是否正确?
+        info(RedDragon('a').getNodes());
+
+
+        //添加, 删除, 截取, 清除, 选择 dom节点操作
+
+            //选择节点0开始, 长度为3的a标签
+            RedDragon('a').slice(0, 3);
+
+            //删除节点, 删除从0开始, 长度为1(长度默认为1)
+            RedDragon('a').del(0, 1);
+
+            //获取第一个节点
+            RedDragon('a').eq(0);
+
+            //获取第一个节点
+            RedDragon('a').first();
+
+            //获取最后的节点
+            RedDragon('a').last();
+
+            //添加新的元素到 RedDragon
+            RedDragon('a').add('p');
+
+            //下一个同类元素 接收一个参数, 是否反转为上一个同类元素, 默认false
+            RedDragon('a').next(false);
+
+            //下面所有的同类元素, 接收一个参数, 是否反转为上面所有的同类元素, 默认false
+            RedDragon('a').nextAll(false);
+
+            //上一个的同类元素
+            RedDragon('a').prev();
+
+            //上面所有的同类元素
+            RedDragon('a').prevAll();
+
+            //所有同类元素, 排除自己
+            RedDragon('a').siblings();
+
+            //所有子类元素
+            RedDragon('a').children();
+
+            //继续向下搜索
+            RedDragon('a').find('#a');
+
+            //清除 RedDragon 选择的dom节点
+            RedDragon('a').clear();
+
+        //操作dom
+
+            //从网页中删除这个节点
+            //RedDragon('a').remove();
+
+            //设置节点文档内容
+            RedDragon('a').html('<span>Error</span>');
+
+            //获取节点文档的内容
+            // RedDragon('a').html(function (data) {
+            //     /*RedDragon 中有多少节点 就会调用此函数多少次*/
+            //     info(data);
+            // });
+
+            //设置节点的文档文本内容
+            //RedDragon('a').text('hello word');
+
+            //获取节点的文档的文本内容
+            // RedDragon('a').text(function (data) {
+            //     //将获取的数据添加到元素p的前面
+            //     RedDragon('p').front(data);
+            // });
+
+            //清空节点的内容
+            //RedDragon('a').empty();
+
+            //将 RedDragon 中的节点 添加到 'p节点中' 之后
+            //RedDragon('a').tailTo('p');
+
+            //将文字或节点添加到 RedDragon 中的尾部
+            RedDragon('a').tail("I am tao");
+
+            // 将 RedDragon 中的节点 添加到 'p节点中' 之前
+            RedDragon('a').frontTo('p');
+
+            //将文字或节点添加到 RedDragon 之前
+            RedDragon('#box').front('abcccc');
+
+            //设置标签DOM属性
+            RedDragon('a').attr('data-info','message');
+
+            //获取标签DOM属性
+            RedDragon('a').attr('data-info',function (data) {
+                console.log(data);
+            });
+
+            //设置标签多个DOM属性
+            RedDragon('a').attr({
+                'data-ok':'ok',
+                'data-no':'no',
+            });
+
+            //设置属性
+            RedDragon('a').prop('index', 1);
+
+            //获取属性
+            RedDragon('a').prop('index', function (data) {
+                console.log(data);
+            });
+
+            //设置css
+            RedDragon('a').css('backgroundColor', 'red');
+
+            //设置多个css
+            RedDragon('a').css({
+                'backgroundColor':'red'
+            });
+
+
+            //获取css
+            RedDragon('a').css('backgroundColor', function (data) {
+                console.log(data);
+            });
+
+            //获取标签的value dom值
+            RedDragon('input').value(function (data) {
+                console.log(data);
+            });
+
+            RedDragon('input').hasClass()
+
+        //console.log(0 || 1 || 2);
+    })
+</script>
+<input type="text" value="123">
+<div><a href="">1</a></div>
+<div><a href="">2</a></div>
+<div><a href="">3</a></div>
+<div><a href="">4</a></div>
+<div><a href="">5</a></div>
+<p>P</p>
+<div id="box">box</div>
+</body>
+</html>

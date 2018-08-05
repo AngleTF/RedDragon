@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<a href="">1</a>
+<a href="">2</a>
+<a href="">3</a>
+<a href="">4</a>
+<script>
+    var a = document.querySelectorAll('a');
+    for ( var key in a ){
+        if( key === 'length') continue;
+        console.log(key);
+    }
+</script>
+</body>
+</html>

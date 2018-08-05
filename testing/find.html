@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../core/RedDragon.js"></script>
+</head>
+<body>
+<div>
+    <a href="">1</a>
+    <a class="aTag" href="">11</a>
+    <a href="">111</a>
+    <a class="aTag2" href="">1111</a>
+</div>
+<div>
+    <a href="">2</a>
+    <a class="aTag" href="">22</a>
+    <a href="">222</a>
+    <a href="">2222</a>
+</div>
+<div>
+    <a href="">3</a>
+    <a class="aTag" href="">33</a>
+    <a href="">333</a>
+    <a href="">3333</a>
+</div>
+
+<script>
+    //next, nextAll, prev, prevAll, find, parent, siblings, children
+
+    /*
+    * next
+    *   1.获取所有同级元素
+    *   2.过滤非dom的元素, 同时给他们打上下标
+    *   3.根据下标 + 1来获取
+    *
+    * */
+     var ele, arr = [];
+    RedDragon.each(document.querySelectorAll('div'), function () {
+
+        //console.log(find(this, 'a'));
+
+    });
+
+    function find(ele, findEleName) {
+        return ele.querySelectorAll(findEleName);
+    }
+
+
+    RedDragon(function () {
+        this.init('div').find('.aTag');
+        info(this);
+    });
+
+
+    //console.log(document.querySelector('div').querySelectorAll('a'));
+
+
+</script>
+</body>
+</html>

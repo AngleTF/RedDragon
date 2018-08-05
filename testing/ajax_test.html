@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script src="../core/RedDragon.js"></script>
+<script>
+
+    RedDragon(function () {
+        function rt(){
+            var result = null;
+            RedDragon.ajax({
+                url:"tsconfig.json",
+                async:false,
+                type:"Get",
+                success: function (data) {
+                    result = data;
+                }
+            });
+
+            return result;
+        }
+
+        console.log(rt());
+    });
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<div>
+    <a id="aTag" href="">aaa</a>
+</div>
+<p id="p">ppp</p>
+<body>
+<script>
+    var a = document.getElementById('aTag');
+    var p = document.getElementById('p');
+
+    p.insertBefore(a, p.firstChild)
+</script>
+</body>
+</html>
